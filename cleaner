@@ -1,0 +1,6 @@
+#!/bin/sh
+
+for i in Java*/ex*; do
+	rm -f $i/*class
+done
+
