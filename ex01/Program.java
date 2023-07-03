@@ -22,12 +22,9 @@ class Program
 		else if (num % 2 == 0)
 			isPrime = false;
 		else
-			for (int i = 3; i <= num / i; i += 2)
+			for (int i = 3; isPrime && i <= num / i; i += 2)
 				if (++ops > 0 && num % i == 0)
-				{
 					isPrime = false;
-					break ;
-				}
 		System.out.println(isPrime + " " + ops);
 	}
 }
