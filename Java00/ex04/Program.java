@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 class Program {
 
-	private static final short	MAX_VALUE = 10;
-	private static final short	MIN_VALUE = 0;
+	private static final int	MAX_VALUE = 10;
+	private static final int	MIN_VALUE = 0;
 
-	public static void	merge(short tmp[][], short dict[][], int start, int end)
+	public static void	merge(int tmp[][], int dict[][], int start, int end)
 	{
 		if (end - start == 0)
 			return ;
@@ -43,18 +43,18 @@ class Program {
 		return ((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min);
 	}
 
-	public static int	addToArray(char c, short dict[][], int size)
+	public static int	addToArray(char c, int dict[][], int size)
 	{
 		int	i = 0;
 
 		for (i = 0; i < size; i++) {
-			if (dict[i][0] == (short)c) {
+			if (dict[i][0] == c) {
 				dict[i][1] += 1;
 				return (size);
 			}
 		}
 		if (i == size) {
-			dict[i][0] = (short)c;
+			dict[i][0] = c;
 			dict[i][1] = 1;
 			size++;
 		}
@@ -69,29 +69,20 @@ class Program {
 		str = kb.nextLine();
 
 		int		len = str.length();
-		short	dict[][] = new short[len][2];
+		int		dict[][] = new int[len][2];
 		char	line[] = str.toCharArray();
-		short	tmp[][] = new short[len][2];
+		int		tmp[][] = new int[len][2];
 		int		size = 0;
+		int		n;
 
 		for (char i:line) {
 			size = addToArray(i, dict, size);
 		}
-		System.out.println("After merge ----------");
 		merge(tmp, dict, 0, size - 1);
 		len = dict[0][1];
-		//for (int i = 0; i < size && i < 10; i++) {
-		//	dict[i][1] = (short)map(dict[i][1], (short)0, (short)len, MIN_VALUE, MAX_VALUE);
-		//}
-
-		for (int i = 0; i < size && i < 10; i++) {
-			System.out.println((char)dict[i][0] + ": " + dict[i][1]);
-		}
-
-		short	n;
 		for (int i = MAX_VALUE + 2; i >= 0; i--) {
 			for (int j = 0; j < 10 && j < size; j++) {
-				n = (short)map(dict[j][1], (short)0, dict[0][1], MIN_VALUE, MAX_VALUE);
+				n = map(dict[j][1], 0, dict[0][1], MIN_VALUE, MAX_VALUE);
 				if (i == n + 1) {
 					if (dict[j][1] < 10) {
 						System.out.print("  ");
