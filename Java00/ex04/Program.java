@@ -66,6 +66,9 @@ class Program {
 
 		System.out.println("->");
 		str = kb.nextLine();
+		if (str.length() <= 0) {
+			return ;
+		}
 
 		int		len = str.length();
 		int		dict[][] = new int[len][2];
