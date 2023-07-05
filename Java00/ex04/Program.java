@@ -17,7 +17,6 @@ class Program {
 
 		merge(tmp, dict, ls, le);
 		merge(tmp, dict, rs, re);
-	
 		i = 0;
 		while (ls <= le && rs <= re) {
 			if (dict[ls][1] == dict[rs][1]) {
@@ -81,10 +80,10 @@ class Program {
 		merge(tmp, dict, 0, size - 1);
 		len = dict[0][1];
 		for (int i = MAX_VALUE + 2; i >= 0; i--) {
-			for (int j = 0; j < 10 && j < size; j++) {
+			for (int j = 0; j < MAX_VALUE && j < size; j++) {
 				n = map(dict[j][1], 0, dict[0][1], MIN_VALUE, MAX_VALUE);
 				if (i == n + 1) {
-					if (dict[j][1] < 10) {
+					if (dict[j][1] < MAX_VALUE) {
 						System.out.print("  ");
 					}
 					else if (dict[j][1] < 100) {

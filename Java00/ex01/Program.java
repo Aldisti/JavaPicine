@@ -6,6 +6,7 @@ class Program {
 		int		ops = 0;
 		boolean	isPrime = true;
 		Scanner	kb = new Scanner(System.in);
+
 		System.out.print("->");
 		num = kb.nextInt();
 		if (num <= 1)

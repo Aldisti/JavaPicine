@@ -9,16 +9,19 @@ class Program {
 		}
 		return (num);
 	}
+
 	public static void	error() {
 		System.err.println("IllegalArgument");
 		System.exit(-1);
 	}
+
 	public static void	main(String[] args) {
 		Scanner	kb = new Scanner(System.in);
 		long	values = 0;
 		long	num;
 		int		tmp;
 		String	week;
+
 		System.out.print("->");
 		week = kb.nextLine();
 		for (int i = 1; i <= 18 && !week.equals("42"); i++) {

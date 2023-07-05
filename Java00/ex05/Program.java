@@ -17,7 +17,6 @@ class Program {
 		int	hour = (int)c - '1';
 		int	day = getDayIndex(line.toCharArray());
 
-		
 		for (; day < DAYS; day += 7) {
 			days[day][hour] = 1;
 		}
@@ -107,7 +106,6 @@ class Program {
 		if (!str.equals(".")) {
 			str = kb.nextLine();
 		}
-
 		for (int i = 0; i < MAX_INPUT; i++) {
 			str = kb.next();
 			if (str.equals(".")) {
@@ -116,7 +114,6 @@ class Program {
 			addLesson(days, str.toCharArray()[0], kb.nextLine());
 		}
 		kb.nextLine();
-
 		while (true) {
 			str = kb.next();
 			if (str.equals(".")) {
