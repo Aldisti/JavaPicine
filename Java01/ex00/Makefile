@@ -6,30 +6,34 @@
 #    By: adi-stef <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 16:02:17 by adi-stef          #+#    #+#              #
-#    Updated: 2023/07/05 16:09:29 by adi-stef         ###   ########.fr        #
+#    Updated: 2023/07/05 16:41:36 by adi-stef         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= Program
 
-SRC		= $(wildcard *.java)
-OBJ		= $(SRC:%.java=%.class)
+SRC		= $(wildcard *java)
 
 CC		= javac
 JFLAGS	= --release 8
 RM		= rm -f
 EXEC	= java
 
-$(NAME): $(OBJ)
+$(NAME):
+		@printf "Compiling..."
 		@$(CC) $(JFLAGS) $(SRC)
+		@printf "\r\033[K$(NAME) compiled successfully\n"
 
 all: $(NAME)
 
 launch: $(NAME)
+		@printf "Executing $(NAME)...\n"
 		@$(EXEC) $(NAME)
 
-clean:
-		@$(RM) $(OBJ)
+clean: 
+		@printf "Removing object files"
+		$(shell $(RM) *class)
+		@printf "\r\033[KObject files removed\n"
 
 fclean: clean
 
