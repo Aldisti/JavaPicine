@@ -1,3 +1,8 @@
+# Mine
+*.swp
+*.o
+*/.git
+
 # Compiled class file
 *.class
 
