@@ -18,7 +18,7 @@ class Transaction {
 		this.recipient = r;
 		this.sender = s;
 		this.category = tc;
-		if (a < 0 && tc == CREDIT || a > 0 && tc == DEBIT) {
+		if (a < 0 && tc == Category.CREDIT || a > 0 && tc == Category.DEBIT) {
 			System.err.println("Invalid amount or transfer category");
 			a = 0;
 		}
@@ -26,7 +26,7 @@ class Transaction {
 	}
 
 	public UUID		getIdentifier() {
-		return (this.identifier.toString());
+		return (this.identifier);
 	}
 
 	public User		getRecipient() {
@@ -38,7 +38,7 @@ class Transaction {
 	}
 
 	public Category	getCategory() {
-		return (this.transferCategory);
+		return (this.category);
 	}
 
 	public int		getAmount() {
@@ -47,7 +47,7 @@ class Transaction {
 
 	@Override
 	public String	toString() {
-		return ("id: [" + this.getIdentifier() + "]\nrecipient: "
+		return ("id: [" + this.identifier.toString() + "]\nrecipient: "
 			+ this.recipient + "\nsender: " + this.sender
 			+ "\namount: [" + this.amount + "]");
 	}
