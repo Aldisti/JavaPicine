@@ -12,23 +12,11 @@ class TransactionService {
 	}
 
 	public int				getBalanceId(int id) {
-		try {
-			return (users.searchId(id).getBalance());
-		}
-		catch (UserNotFoundException e) {
-			System.err.println(e);
-			return (0);
-		}
+		return (users.searchId(id).getBalance());
 	}
 
 	public int				getBalanceIndex(int index) {
-		try {
-			return (users.searchIndex(index).getBalance());
-		}
-		catch (UserNotFoundException e) {
-			System.err.println(e);
-			return (0);
-		}
+		return (users.searchIndex(index).getBalance());
 	}
 
 	public void				doTransaction(int id1, int id2, int amount) {
