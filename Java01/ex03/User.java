@@ -1,14 +1,16 @@
 
 
 class User {
-	private final int	id;
-	private String		name;
-	private int			balance;
+	private final int				id;
+	private String					name;
+	private int						balance;
+	private TransactionsLinkedList	transactions;
 
 	public	User(String name, int balance) {
 		this.id = UserIdsGenerator.getInstance().generateId();
 		this.name = name;
 		this.balance = balance;
+		this.TransactionsLinkedList = new TransactionsLinkedList();
 		if (balance < 0) {
 			System.err.println("'balance' cannot be negative");
 			this.balance = 0;
@@ -33,6 +35,10 @@ class User {
 
 	public void		setBalance(int balance) {
 		this.balance = balance;
+	}
+
+	public TransactionsLinkedList	getTransactions() {
+		return (this.transactions);
 	}
 
 	@Override
