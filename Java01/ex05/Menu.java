@@ -195,6 +195,32 @@ class Menu {
 		}
 	}
 
+	private void	checkTransfers() {
+		Transaction[]	tmp;
+
+		try {
+			tmp = this.service.checkTransactions();
+		}
+		catch (Exception e) {
+			System.out.println(e);
+			return ;
+		}
+		if (tmp.length == 0) {
+			System.out.println("All the transfers are valid");
+			return ;
+		}
+		System.out.println("Check results:");
+		for (int i = 0; i < tmp.length; i++) {
+			System.out.print(tmp[i].getRecipient().getName());
+			System.out.print("(id = " + tmp[i].getRecipient().getId() + ")");
+			System.out.print(" has an unacknowledged transfer id = ");
+			System.out.print(tmp[i].getIdentifier().toString());
+			System.out.print(" from " + tmp[i].getSender().getName());
+			System.out.print("(id = " + tmp[i].getSender().getId() + ")");
+			System.out.println(" for " + tmp[i].getAmount());
+		}
+	}
+
 	private void	getInput() {
 		int	n;
 
@@ -231,7 +257,7 @@ class Menu {
 				}
 			case 6:
 				if (this.dev) {
-					//this.checkTransfers();
+					this.checkTransfers();
 					break ;
 				}
 			case 7:
