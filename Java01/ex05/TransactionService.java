@@ -21,6 +21,9 @@ class TransactionService {
 	}
 
 	public void				doTransaction(int id1, int id2, int amount) {
+		if (id1 == id2) {
+			throw new IllegalTransactionException("Illegal transaction same user");
+		}
 		User		u1 = this.users.searchId(id1);
 		User		u2 = this.users.searchId(id2);
 		Transaction	tmp = new Transaction(u1, u2, amount);

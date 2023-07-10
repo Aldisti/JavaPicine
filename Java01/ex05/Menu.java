@@ -163,9 +163,6 @@ class Menu {
 			System.out.print(array[i].getAmount());
 			System.out.print(" with id = " + array[i].getIdentifier().toString());
 			System.out.println();
-//			if (array[i].getRecipient().getId() == id) {
-//				System.out.print(array[i].getSender().getName());
-//			}
 		}
 	}
 
