@@ -33,6 +33,7 @@ class File {
 					this.dict.merge(tmp[i], 1, Integer::sum);
 				}
 			}
+			this.file.close();
 		}
 		catch (Exception e) {
 			System.out.println(e);

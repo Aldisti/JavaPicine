@@ -14,6 +14,23 @@ class Similarity {
 		this.file2 = file2;
 	}
 
+	public void	uploadDict() {
+		try {
+			FileWriter		file = new FileWriter("dictionary.txt");
+			BufferedWriter	buffer = new BufferedWriter(file);
+
+			for (String key : this.dict.keySet()) {
+				buffer.write(key + ":	" + this.dict.get(key) + "\n");
+			}
+			buffer.flush();
+			file.close();
+		}
+		catch (Exception e) {
+			System.out.println(e);
+			System.exit(1);
+		}
+	}
+
 	public void	merge() {
 		Map<String, Integer>	tmp;
 
@@ -26,6 +43,7 @@ class Similarity {
 		for (String key : tmp.keySet()) {
 			this.dict.merge(key, tmp.get(key), Integer::sum);
 		}
+		this.uploadDict();
 	}
 
 	public void	makeVectors() {
