@@ -31,6 +31,9 @@ class TransactionsLinkedList implements TransactionsList {
 				if (tmp.getBack() != null) {
 					tmp.getBack().setNext(tmp.getNext());
 				}
+				if (this.head == tmp) {
+					this.head = this.head.getNext();
+				}
 				this.size--;
 				return (tmp.getData());
 			}
