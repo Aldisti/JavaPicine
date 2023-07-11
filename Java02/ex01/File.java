@@ -8,7 +8,7 @@ class File {
 	private Map<String, Integer>	dict;
 	private String[]				words;
 	private int[]					occ;
-	private char[]					PUNCTUATION = {'.', ',', ':', ';', '!', '?', '\'', '\"', '(', ')'};
+	private char[]					PUNCTUATION = {'.', ',', ':', ';', '!', '?', '\'', '\"', '(', ')', '[', ']', '<', '>'};
 
 	public	File(String path) {
 		this.path = path;
@@ -25,18 +25,21 @@ class File {
 			this.file = new FileReader(this.path);
 			this.buf = new BufferedReader(file);
 			while ((line = this.buf.readLine()) != null) {
+				line = line.toLowerCase();
 				for (int i = 0; i < PUNCTUATION.length; i++) {
 					line = line.replace(PUNCTUATION[i], ' ');
 				}
 				tmp = line.split("\\s+");
 				for (int i = 0; i < tmp.length; i++) {
-					this.dict.merge(tmp[i], 1, Integer::sum);
+					if (!tmp[i].equals("")) {
+						this.dict.merge(tmp[i], 1, Integer::sum);
+					}
 				}
 			}
 			this.file.close();
 		}
 		catch (Exception e) {
-			System.out.println(e);
+			System.out.println(e.getMessage());
 			System.exit(1);
 		}
 	}

@@ -87,11 +87,13 @@ class Similarity {
 		if (this.v1 == null || this.v2 == null) {
 			this.makeVectors();
 		}
-
 		for (int i = 0; i < v1.length; i++) {
 			n += this.v1[i] * this.v2[i];
 			tmp1 += this.v1[i] * this.v1[i];
 			tmp2 += this.v2[i] * this.v2[i];
+		}
+		if (tmp1 == 0 || tmp2 == 0) {
+			return (0);
 		}
 		return (n / (Math.sqrt(tmp1) * Math.sqrt(tmp2)));
 	}
