@@ -103,14 +103,14 @@ public class Program {
 		String				str;
 		int[]				tmp;
 
-		getCsv("test");
+		getCsv("signatures.txt");
 		try {
 			file = new FileWriter("result.txt");
 			while (!(str = kb.nextLine()).equals("42")) {
 				tmp = getStart(str);
 				str = getFromCsv(tmp);
 				if (str != null) {
-					System.out.println("PROCESSED: " + str);
+					System.out.println("PROCESSED");
 					file.write(str + "\n");
 				}
 				else {
