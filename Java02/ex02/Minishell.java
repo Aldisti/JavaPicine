@@ -37,27 +37,25 @@ class Minishell {
 		try {
 			wa = new File(this.curDir + "/" + what);
 			if (!wa.isFile()) {
-				System.out.println("'" + what + "' is not a file");
+				System.out.println("Cannot mv '" + what + "'");
 				return ;
 			}
 			we = new File(this.curDir + "/" + where);
-			if (where.contains("/")) {
+			if (where.contains(".") || where.contains("/")) {
 				if (!we.isDirectory()) {
 					System.out.println("'" + where + "' is not a directory");
 					return ;
 				}
-				we = new File(this.curDir + "/" + where + "/" + what);
+				we = new File(this.curDir + "/" + where + "/" + wa.getName());
 				if (!wa.renameTo(we)) {
 					System.out.println("Cannot move '" + what + "'into '" + where + "'");
 				}
 				return ;
 			}
-			if (!we.isFile()) {
-				System.out.println("'" + where + "' is not a file");
-				return ;
-			}
 			if (!wa.renameTo(we)) {
-				we.delete();
+				if (we.exists()) {
+					we.delete();
+				}
 				if (!wa.renameTo(we)) {
 					System.out.println("Cannot rename '" + what + "' into '" + where + "'");
 					return ;

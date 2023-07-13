@@ -6,7 +6,7 @@
 #    By: adi-stef <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 16:02:17 by adi-stef          #+#    #+#              #
-#    Updated: 2023/07/05 16:41:36 by adi-stef         ###   ########.fr        #
+#    Updated: 2023/07/13 15:35:35 by adi-stef         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ all: $(NAME)
 
 launch: $(NAME)
 		@printf "Executing $(NAME)...\n"
-		@$(EXEC) $(NAME)
+		@$(EXEC) $(NAME) --current-folder=$(PWD)
 
 clean: 
 		@printf "Removing object files"
