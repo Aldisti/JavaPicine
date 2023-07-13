@@ -1,28 +1,17 @@
 import java.util.*;
 
-class Sum extends Thread {
-	private int[]	numbers;
-	private int[]	output;
-	private int		index;
-	private int		start;
-	private int		end;
-
-	public	Sum(int[] nums, int[] out, int i, int s, int e) {
-		this.numbers = nums;
-		this.output = out;
-		this.index = i;
-		this.start = s;
-		this.end = e;
-	}
-
-	public void	run() {
-		while (this.start < this.end && this.start < this.numbers.length) {
-			this.output[this.index] += this.numbers[this.start++];
-		}
-	}
-}
-
 class Program {
+
+	public static int[]	genRandArray(int size, int max) {
+		Random	r = new Random();
+		int[]	arr = new int[size];
+
+		for (int i = 0; i < size; i++) {
+			arr[i] = r.nextInt(max);
+		}
+		return (arr);
+	}
+
 	public static void	main(String[] args) {
 		int			sum = 0;
 		int			size;
@@ -30,7 +19,6 @@ class Program {
 		int[]		numbers;
 		int[]		output;
 		Vector<Sum>	threads;
-		Random		r;
 
 		if (args.length != 2 || !args[0].startsWith("--arraySize=") || !args[1].startsWith("--threadsCount=")) {
 			System.out.println("Invalid arguments");
@@ -38,17 +26,13 @@ class Program {
 		}
 		size = Integer.valueOf(args[0].substring(args[0].indexOf('=') + 1, args[0].length()));
 		count = Integer.valueOf(args[1].substring(args[1].indexOf('=') + 1, args[1].length()));
-		if (count > size) {
+		if (count > size || size <= 0 || count <= 0 || size > 2000000) {
 			System.out.println("Invalid arguments");
 			return ;
 		}
-		r = new Random();
-		numbers = new int[size];
+		numbers = genRandArray(size, 1000);
 		output = new int[count + 1];
 		threads = new Vector<Sum>();
-		for (int i = 0; i < size; i++) {
-			numbers[i] = r.nextInt(1000);
-		}
 		for (int i = 0; i < count; i++) {
 			if (i == count - 1) {
 				threads.add(new Sum(numbers, output, i, size / count * i, size));
@@ -91,3 +75,4 @@ class Program {
 		System.out.println("Sum by threads: " + output[count]);
 	}
 }
+
