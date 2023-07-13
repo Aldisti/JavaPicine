@@ -6,7 +6,7 @@
 #    By: adi-stef <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/05 16:02:17 by adi-stef          #+#    #+#              #
-#    Updated: 2023/07/05 16:41:36 by adi-stef         ###   ########.fr        #
+#    Updated: 2023/07/13 14:59:56 by adi-stef         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ launch: $(NAME)
 
 clean: 
 		@printf "Removing object files"
-		$(shell $(RM) *class)
+		@$(shell $(RM) *class *png *jpg *pdf)
 		@printf "\r\033[KObject files removed\n"
 
 fclean: clean
