@@ -33,16 +33,18 @@ class Program {
 		char[]		chars;
 		String		path;
 
-		if (args.length != 2) {
+		if (args.length != 3) {
 			System.out.println("Invalid arguments");
 			return ;
 		}
-		chars = args[0].toCharArray();
-		path = args[1];
+		path = args[2];
 		if (!checkSignature(path)) {
 			System.out.println("Invalid file");
 			return ;
 		}
+		chars = new char[2];
+		chars[0] = args[0].charAt(0);
+		chars[1] = args[1].charAt(0);
 		art = new AsciiArt(path);
 		art.draw(chars);
 	}
