@@ -1,7 +1,7 @@
 
 To compile:
-jc -d target src/java/edu.school42.printer/*/*java
+javac --release 8 -d target src/java/edu.school42.printer/*/*java
 
 To run:
-j -cp target Program
+java -cp target edu.school42.printer.app.Program
 

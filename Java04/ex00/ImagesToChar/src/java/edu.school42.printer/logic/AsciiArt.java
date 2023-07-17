@@ -1,4 +1,4 @@
-package AsciiArt;
+package edu.school42.printer.logic;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
