@@ -1,11 +1,16 @@
-
-import AsciiArt.AsciiArt;
-
+import com.beust.jcommander.Parameter;
+import com.beust.jcommander.JCommander;
 import java.util.*;
 import java.io.*;
 
 class Program {
-	private static int[]	SIGNATURE = {66, 77};
+	private static String	PATH = "target/resources/it.bmp";
+
+	@Parameter(names = "--white", description = "The color white")
+    private static String	white;
+
+    @Parameter(names = "--black", description = "The color black")
+    private static String	black;
 
 	public static int	toHex(String line) {
 		char[]	str = line.toCharArray();
@@ -31,24 +36,18 @@ class Program {
 	}
 
 	public static void	main(String[] args) throws IOException {
-		AsciiArt	art;
-		char[]		chars;
-		String		path;
+		//AsciiArt	art;
+		JCommander	jc;
 
-		if (args.length != 3) {
-			System.out.println("Invalid arguments");
-			return ;
-		}
-		path = args[2];
-		if (!checkSignature(path)) {
+		jc = new JCommander(main);
+        jc.parse(args);
+		System.out.println("white=" + white + "-black=" + black);
+		if (!checkSignature(PATH)) {
 			System.out.println("Invalid file");
 			return ;
 		}
-		chars = new char[2];
-		chars[0] = args[0].charAt(0);
-		chars[1] = args[1].charAt(0);
-		art = new AsciiArt(path);
-		art.draw(chars);
+		//art = new AsciiArt(PATH);
+		//art.draw(chars);
 	}
 }
 
