@@ -1,4 +1,8 @@
 
+package edu.school42.printer.app;
+
+import edu.school42.printer.logic.AsciiArt;
+
 import java.util.*;
 import java.io.*;
 

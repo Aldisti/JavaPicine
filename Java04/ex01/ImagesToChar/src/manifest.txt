@@ -1,2 +1,2 @@
-Main-Class: Program
+Main-Class: edu.school42.printer.app.Program
 

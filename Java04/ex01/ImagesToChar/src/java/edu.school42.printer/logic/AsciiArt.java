@@ -1,10 +1,13 @@
+
+package edu.school42.printer.logic;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.Color;
 
-class AsciiArt {
+public class AsciiArt {
 
 	private BufferedImage	image;
 	private int[][]			mat;
