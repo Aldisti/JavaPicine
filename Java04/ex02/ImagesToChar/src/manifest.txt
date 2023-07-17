@@ -1,2 +1,2 @@
-Main-Class: Program
-
+Manifest-Version: 1.0
+Main-Class: edu.school42.printer.app.Program

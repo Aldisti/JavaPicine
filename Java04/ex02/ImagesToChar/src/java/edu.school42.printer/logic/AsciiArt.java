@@ -1,10 +1,15 @@
+package edu.school42.printer.logic;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.Color;
+import javax.swing.text.html.StyleSheet;
+import com.diogonunes.jcolor.Attribute;
+import com.diogonunes.jcolor.Ansi;
 
-class AsciiArt {
+public class AsciiArt {
 
 	private BufferedImage	image;
 	private int[][]			mat;
@@ -63,13 +68,31 @@ class AsciiArt {
 		return (this.mat);
 	}
 
-	public void	draw(char[] chars) {
+	public void	draw(String w, String b) {
+		Attribute	bkgColor;
+		Color		c;
+		int			r1, g1, b1, r2, g2, b2;
+
+		c = new StyleSheet().stringToColor(w.toLowerCase());
+		r1 = c.getRed();
+		g1 = c.getGreen();
+		b1 = c.getBlue();
+		c = new StyleSheet().stringToColor(b.toLowerCase());
+		r2 = c.getRed();
+		g2 = c.getGreen();
+		b2 = c.getBlue();
 		if (this.mat == null) {
 			this.analyze();
 		}
 		for (int y = 0; y < this.mat.length; y++) {
 			for (int x = 0; x < this.mat[y].length; x++) {
-				System.out.print(chars[this.mat[y][x]]);
+				if (this.mat[y][x] == 1) {
+					bkgColor = Attribute.BACK_COLOR(r1, g1, b1);
+				}
+				else {
+					bkgColor = Attribute.BACK_COLOR(r2, g2, b2);
+				}
+				System.out.print(Ansi.colorize("   ", bkgColor));
 			}
 			System.out.println();
 		}
