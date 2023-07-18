@@ -1,3 +1,5 @@
+package edu.school42.chat.models;
+
 import java.util.*;
 
 public class User {
