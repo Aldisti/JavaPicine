@@ -92,7 +92,7 @@ public class AsciiArt {
 				else {
 					bkgColor = Attribute.BACK_COLOR(r2, g2, b2);
 				}
-				System.out.print(Ansi.colorize("   ", bkgColor));
+				System.out.print(Ansi.colorize("  ", bkgColor));
 			}
 			System.out.println();
 		}

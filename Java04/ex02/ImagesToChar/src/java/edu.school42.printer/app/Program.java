@@ -55,9 +55,14 @@ class Program {
 
 	public static void	main(String[] args) throws IOException {
 		AsciiArt	art;
-		Program	tmp = new Program();
+		Program		tmp;
 		JCommander	jc;
 
+		if (args.length != 2) {
+			System.out.println("Invalid arguments");
+			return ;
+		}
+		tmp = new Program();
 		jc = new JCommander(tmp);
 		try {
 			jc.parse(args);
