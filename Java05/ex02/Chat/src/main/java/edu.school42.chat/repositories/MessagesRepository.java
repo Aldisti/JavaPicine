@@ -9,7 +9,7 @@ import java.util.*;
 public interface MessagesRepository {
 	Optional<Message>	findById(long id);
 //	void				delete(Message msg);
-//	void				save(Message msg);
+	void				save(Message msg);
 //	void				update(Message msg);
 //	List<Message>		findAll();
 }

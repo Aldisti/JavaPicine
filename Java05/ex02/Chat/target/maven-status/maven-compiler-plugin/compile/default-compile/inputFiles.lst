@@ -1,0 +1,7 @@
+/nfs/homes/adi-stef/Documents/JavaPiscine/Java05/ex01/Chat/src/main/java/edu.school42.chat/models/Message.java
+/nfs/homes/adi-stef/Documents/JavaPiscine/Java05/ex01/Chat/src/main/java/edu.school42.chat/repositories/MessagesRepository.java
+/nfs/homes/adi-stef/Documents/JavaPiscine/Java05/ex01/Chat/src/main/java/edu.school42.chat/app/Program.java
+/nfs/homes/adi-stef/Documents/JavaPiscine/Java05/ex01/Chat/src/main/java/edu.school42.chat/models/Chatroom.java
+/nfs/homes/adi-stef/Documents/JavaPiscine/Java05/ex01/Chat/src/main/java/edu.school42.chat/repositories/NotSavedSubEntityException.java
+/nfs/homes/adi-stef/Documents/JavaPiscine/Java05/ex01/Chat/src/main/java/edu.school42.chat/models/User.java
+/nfs/homes/adi-stef/Documents/JavaPiscine/Java05/ex01/Chat/src/main/java/edu.school42.chat/repositories/MessagesRepositoryJdbcImpl.java

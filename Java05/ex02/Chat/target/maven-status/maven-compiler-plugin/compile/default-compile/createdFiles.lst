@@ -1,0 +1,4 @@
+edu/school42/chat/repositories/MessagesRepository.class
+edu/school42/chat/models/Message.class
+edu/school42/chat/models/User.class
+edu/school42/chat/models/Chatroom.class
