@@ -10,7 +10,7 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 
 	private DataSource	ds;
 
-	private MessagesRepositoryJdbcImpl(DataSource ds) {
+	public	MessagesRepositoryJdbcImpl(DataSource ds) {
 		this.ds = ds;
 	}
 
