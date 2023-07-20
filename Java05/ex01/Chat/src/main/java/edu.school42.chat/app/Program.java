@@ -25,13 +25,14 @@ public class Program {
 		BufferedReader	file;
 		Connection		con;
 		String			line;
+		String			tmp;
 
 		try {
 			file = new BufferedReader(new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream(path)));
 			con = ds.getConnection();
 			while ((line = file.readLine()) != null) {
-				while (!line.endsWith(";")) {
-					line += file.readLine();
+				while (!line.endsWith(";") && (tmp = file.readLine()) != null) {
+					line += tmp;
 				}
 				con.prepareStatement(line.replace(";", " ")).execute();
 			}

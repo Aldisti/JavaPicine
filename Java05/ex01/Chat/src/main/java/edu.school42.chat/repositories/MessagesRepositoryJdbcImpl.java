@@ -50,7 +50,7 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 
 	@Override
 	public Optional<Message>	findById(long id) {
-		String		query = "SELECT * FROM chat.messages WHERE id = ";
+		String		query = "SELECT * FROM chat.message WHERE id = ";
 		Connection	con;
 		ResultSet	rs;
 
