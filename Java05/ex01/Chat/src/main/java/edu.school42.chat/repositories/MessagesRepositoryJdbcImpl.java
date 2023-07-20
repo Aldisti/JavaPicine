@@ -4,6 +4,7 @@ package edu.school42.chat.repositories;
 import edu.school42.chat.models.*;
 import java.sql.*;
 import javax.sql.*;
+import java.util.*;
 
 public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 
