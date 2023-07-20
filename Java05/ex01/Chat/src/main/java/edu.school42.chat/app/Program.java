@@ -27,7 +27,7 @@ public class Program {
 		String			line;
 
 		try {
-			file = new BufferedReader(this.getClass().getClassLoader().getResourceAsStream(path));
+			file = new BufferedReader(new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream(path)));
 			con = ds.getConnection();
 			while ((line = file.readLine()) != null) {
 				while (!line.endsWith(";")) {
