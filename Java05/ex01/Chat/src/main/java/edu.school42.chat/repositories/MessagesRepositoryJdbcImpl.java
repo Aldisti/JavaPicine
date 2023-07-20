@@ -1,3 +1,10 @@
+
+package edu.school42.chat.repositories;
+
+import edu.school42.chat.models.*;
+import java.sql.*;
+import javax.sql.*;
+
 public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 
 	private DataSource	ds;
