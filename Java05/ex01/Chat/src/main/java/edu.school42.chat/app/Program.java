@@ -54,7 +54,7 @@ public class Program {
 		mrj = new MessagesRepositoryJdbcImpl(ds);
 		System.out.print("->");
 		try {
-			System.out.println(mrj.findById(kb.nextLong()).toString());
+			System.out.println(mrj.findById(kb.nextLong()).get().toString());
 		}
 		catch (Exception e) {
 			System.out.println("'main' says: " + e.getMessage());
