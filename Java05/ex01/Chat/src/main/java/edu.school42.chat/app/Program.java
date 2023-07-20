@@ -17,7 +17,7 @@ public class Program {
 	static {
 		config.setJdbcUrl("jdbc:postgresql://127.0.0.1:5432/chatrooms");
 		config.setUsername("postgres");
-		config.setPassword("1234");
+		config.setPassword("password");
 		ds = new HikariDataSource(config);
 	}
 
