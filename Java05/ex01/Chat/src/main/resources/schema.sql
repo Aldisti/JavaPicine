@@ -22,3 +22,4 @@ CREATE TABLE chat.message(
 	text	TEXT,
 	time	TIMESTAMPTZ	NOT NULL
 );
+
