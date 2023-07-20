@@ -59,7 +59,7 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 			rs = con.prepareStatement(query + id).executeQuery();
 			while (rs.next()) {
 				return (Optional.of(new Message(rs.getLong("id"), this.getUser(con, rs.getLong("author")),
-						this.getChatroom(con, rs.getLong("room")), rs.getString("text"), rs.getString("time"))));
+						this.getRoom(con, rs.getLong("room")), rs.getString("text"), rs.getString("time"))));
 			}
 		}
 		catch (Exception e) {
