@@ -16,8 +16,8 @@ public class Program {
 
 	static {
 		config.setJdbcUrl("jdbc:postgresql://127.0.0.1:5432/chatrooms");
-		config.setUsername("admin");
-		config.setPassword("admin");
+		config.setUsername("postgres");
+		config.setPassword("1234");
 		ds = new HikariDataSource(config);
 	}
 
@@ -33,7 +33,7 @@ public class Program {
 				while (!line.endsWith(";")) {
 					line += file.readLine();
 				}
-				con.prepareStatement(line.replace(";", " ")).executeQuery();
+				con.prepareStatement(line.replace(";", " ")).execute();
 			}
 		}
 		catch (Exception e) {

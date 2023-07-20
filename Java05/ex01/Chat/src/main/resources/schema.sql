@@ -1,4 +1,6 @@
 
+DROP SCHEMA IF EXISTS chat cascade;
+
 CREATE SCHEMA chat;
 
 CREATE TABLE chat.user(
