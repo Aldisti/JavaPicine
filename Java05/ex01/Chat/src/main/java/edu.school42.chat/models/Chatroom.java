@@ -4,18 +4,18 @@ import java.util.*;
 
 public class Chatroom {
 
-	private int				id;
+	private long				id;
 	private String			name;
 	private User			owner;
 	private List<Message>	messages;
 
-	public	Chatroom(int id, String name, User owner) {
+	public	Chatroom(long id, String name, User owner) {
 		this.name = name;
 		this.owner = owner;
 		this.messages = new LinkedList<Message>();
 	}
 
-	public int				getId() {
+	public long				getId() {
 		return (this.id);
 	}
 
@@ -31,7 +31,7 @@ public class Chatroom {
 		return (this.messages);
 	}
 
-	public Message			getMessage(int id) {
+	public Message			getMessage(long id) {
 		for (Message msg : this.messages) {
 			if (msg.getId() == id) {
 				return (msg);

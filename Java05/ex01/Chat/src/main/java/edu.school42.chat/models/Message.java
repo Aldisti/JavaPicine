@@ -4,13 +4,13 @@ import java.util.*;
 
 public class Message {
 
-	private int			id;
+	private long			id;
 	private User		author;
 	private Chatroom	room;
 	private String		text;
 	private String		time;
 
-	public	Message(int id, User author, Chatroom room, String text, String time) {
+	public	Message(long id, User author, Chatroom room, String text, String time) {
 		this.id = id;
 		this.author = author;
 		this.room = room;
@@ -18,7 +18,7 @@ public class Message {
 		this.time = time;
 	}
 
-	public int			getId() {
+	public long			getId() {
 		return (this.id);
 	}
 
