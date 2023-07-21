@@ -84,9 +84,8 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 			query += msg.getRoom().getId() + ", '" + msg.getText() + "', '" + msg.getTime() + "')";
 			this.con.prepareStatement(query).execute();
 			rs = this.con.prepareStatement("SELECT * FROM chat.message",
-					ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE).executeQuery();
+					ResultSet.TYPE_SCROLL_INSENSITIVE).executeQuery();
 			rs.last();
-			System.out.println("ciao");
 			msg.setId(rs.getLong("id"));
 		}
 		catch (SQLException e) {
