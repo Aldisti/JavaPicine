@@ -75,7 +75,6 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 		query += (msg.getText() == null) ? null : "'" + msg.getText() + "'";
 		query += ", time = " + msg.getTime();
 		query += " WHERE id = " + msg.getId();
-		System.out.println("query: " + query);
 		try {
 			this.con.prepareStatement(query).execute();
 		}
