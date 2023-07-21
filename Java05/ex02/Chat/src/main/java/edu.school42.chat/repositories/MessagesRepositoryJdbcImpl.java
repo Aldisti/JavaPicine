@@ -81,11 +81,9 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 			if (!rs.next()) {
 				throw new NotSavedSubEntityException("chatroom(id = " + msg.getRoom().getId() + ") not found");
 			}
-			System.out.println("ciao");
 			this.con.prepareStatement(query).execute();
-			System.out.println("ciao");
-			rs = this.con.prepareStatement("SELECT * FROM chat.message").executeQuery();
-			System.out.println("ciao");
+			rs = this.con.prepareStatement("SELECT * FROM chat.message",
+					ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE).executeQuery();
 			rs.last();
 			System.out.println("ciao");
 			msg.setId(rs.getLong("id"));
