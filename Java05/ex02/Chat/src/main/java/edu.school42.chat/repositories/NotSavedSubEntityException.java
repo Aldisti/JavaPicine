@@ -1,10 +1,10 @@
 
-package edu.school42.chat.repository;
+package edu.school42.chat.repositories;
 
 import java.lang.RuntimeException;
 
 public class NotSavedSubEntityException extends RuntimeException {
-	public	Runtimeexception(String errMessage) {
+	public	NotSavedSubEntityException(String errMessage) {
 		super(errMessage);
 	}
 }

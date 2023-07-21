@@ -8,6 +8,7 @@ import java.io.*;
 import java.sql.*;
 import javax.sql.*;
 import com.zaxxer.hikari.*;
+import java.time.LocalDateTime;
 
 public class Program {
 	
@@ -48,13 +49,20 @@ public class Program {
 		Scanner						kb = new Scanner(System.in);
 		MessagesRepositoryJdbcImpl	mrj;
 		Message						tmp;
+		User						creator, author;
+		Chatroom					room;
+		Message						message;
 
 		inst.loadSql("schema.sql");
 		inst.loadSql("data.sql");
-		mrj = new MessagesRepositoryJdbcImpl(ds);
-		System.out.print("->");
 		try {
-			System.out.println(mrj.findById(kb.nextLong()).get().toString());
+			mrj = new MessagesRepositoryJdbcImpl(ds);
+			creator = new User(7L, "user", "user");
+			author = creator;
+			room = new Chatroom(8L, "room", creator);
+			message = new Message(null, author, room, "Hello!", LocalDateTime.now().toString());
+			mrj.save(message);
+			System.out.println("id = " + message.getId());
 		}
 		catch (Exception e) {
 			System.out.println("'main' says: " + e.getMessage());

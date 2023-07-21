@@ -18,6 +18,17 @@ public class Message {
 		this.time = time;
 	}
 
+	public	Message(Object id, User author, Chatroom room, String text, String time) {
+		if (id != null) {
+			throw new InvalidParamsException("Message invalid params exception");
+		}
+		this.id = -1;
+		this.author = author;
+		this.room = room;
+		this.text = text;
+		this.time = time;
+	}
+
 	public long			getId() {
 		return (this.id);
 	}
@@ -36,6 +47,10 @@ public class Message {
 
 	public String		getTime() {
 		return (this.time);
+	}
+
+	public void			setId(long id) {
+		this.id = id;
 	}
 
 	@Override

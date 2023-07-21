@@ -17,7 +17,13 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 	}
 
 	public void					closeConnection() {
-		this.con.close();
+		try {
+			this.con.close();
+		}
+		catch (SQLException e) {
+			System.out.println("'closeConnection' says: " + e.getMessage());
+			System.exit(1);
+		}
 	}
 
 	private User				getUser(long id) {
@@ -32,7 +38,7 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 		}
 		catch (Exception e) {
 			System.out.println("'getUser' says: " + e.getMessage());
-			this.con.close();
+			this.closeConnection();
 			System.exit(1);
 		}
 		return (null);
@@ -50,7 +56,7 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 		}
 		catch (Exception e) {
 			System.out.println("'getUser' says: " + e.getMessage());
-			this.con.close();
+			this.closeConnection();
 			System.exit(1);
 		}
 		return (null);
@@ -63,13 +69,13 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 						+ msg.getText() + "', '" + msg.getTime() + "')";
 		ResultSet	rs;
 
-		if (msg.getAuthor().getId() == null || msg.getRoom().getId() == null) {
-			throw new NotSavedSubEntityException();
+		if (msg.getAuthor().getId() == -1 || msg.getRoom().getId() == -1) {
+			throw new NotSavedSubEntityException("Not Saved Sub Entity Exception");
 		}
 		try {
 			rs = this.con.prepareStatement("SELECT * FROM chat.user WHERE id = " + msg.getAuthor().getId()).executeQuery();
 			if (!rs.next()) {
-				throw new NotSavedSubEntityException("user(id = " + msg.getUser().getId() + ") not found");
+				throw new NotSavedSubEntityException("user(id = " + msg.getAuthor().getId() + ") not found");
 			}
 			rs = this.con.prepareStatement("SELECT * FROM chat.chatroom WHERE id = " + msg.getRoom().getId()).executeQuery();
 			if (!rs.next()) {
@@ -82,7 +88,7 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 		}
 		catch (SQLException e) {
 			System.out.println("'save' says: " + e.getMessage());
-			this.con.close();
+			this.closeConnection();
 			System.exit(1);
 		}
 	}
@@ -101,7 +107,7 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 		}
 		catch (Exception e) {
 			System.out.println("'findById' says: " + e.getMessage());
-			this.con.close();
+			this.closeConnection();
 			System.exit(1);
 		}
 		return (null);

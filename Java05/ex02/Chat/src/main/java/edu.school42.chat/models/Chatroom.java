@@ -14,6 +14,15 @@ public class Chatroom {
 		this.owner = owner;
 		this.messages = new LinkedList<Message>();
 	}
+	
+	public	Chatroom(Object id, String name, User owner) {
+		if (id != null) {
+			throw new InvalidParamsException("Chatroom invalid params exception");
+		}
+		this.id = -1;
+		this.name = name;
+		this.owner = owner;
+	}
 
 	public long				getId() {
 		return (this.id);

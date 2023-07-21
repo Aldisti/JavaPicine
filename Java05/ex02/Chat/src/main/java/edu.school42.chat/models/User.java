@@ -18,6 +18,15 @@ public class User {
 		this.socialize= new ArrayList<Chatroom>();
 	}
 
+	public	User(Object id, String login, String password) {
+		if (id != null) {
+			throw new InvalidParamsException("User invalid params exception");
+		}
+		this.id = -1;
+		this.login = login;
+		this.password = password;
+	}
+
 	public long				getId() {
 		return (this.id);
 	}
