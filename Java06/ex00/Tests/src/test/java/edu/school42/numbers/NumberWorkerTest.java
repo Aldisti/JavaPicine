@@ -1,20 +1,15 @@
 package edu.school42.numbers;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.ValueSource;
 
-import org.junit.Test;
+public class NumberWorkerTest {
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
-    }
+	@ParameterizedTest
+	@ValueSource(ints = {2, 11, 65357, 95311})
+	public void	isPrimeForPrimes(int n) {
+		assertTrue(new NumberWorker().isPrime(n));
+	}
 }
+
