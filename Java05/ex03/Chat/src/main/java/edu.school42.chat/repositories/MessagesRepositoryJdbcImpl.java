@@ -71,21 +71,22 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 			throw new NotSavedSubEntityException("Not Saved Sub Entity Exception");
 		}
 		query += msg.getAuthor().getId() + ", room = " + msg.getRoom().getId()
-				+ ", text = ";
+				+ ", text = '";
 		if (msg.getText() == null) {
 			query += "null";
 		}
 		else {
 			query += msg.getText();
 		}
-		query += ", time = ";
+		query += "', time = '";
 		if (msg.getTime() == null) {
 			query += "null";
 		}
 		else {
 			query += msg.getTime();
 		}
-		System.out.println(query);
+		query += "'";
+		System.out.println("query: " + query);
 		try {
 			this.con.prepareStatement(query).execute();
 		}
