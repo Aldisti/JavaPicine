@@ -85,6 +85,7 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 		else {
 			query += msg.getTime();
 		}
+		System.out.println(query);
 		try {
 			this.con.prepareStatement(query).execute();
 		}
