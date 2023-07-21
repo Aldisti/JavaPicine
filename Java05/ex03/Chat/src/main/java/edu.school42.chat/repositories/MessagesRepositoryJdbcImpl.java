@@ -64,15 +64,15 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 
 	@Override
 	public void					update(Message msg) {
-		String		query = "UPDATE chat.message SET author = ";
+		String		query = "UPDATE chat.message WHERE id = " + msg.getId() + " SET author = ";
 
 		if (msg.getAuthor() == null || msg.getRoom() == null
 			|| msg.getAuthor().getId() == -1 || msg.getRoom().getId() == -1) {
 			throw new NotSavedSubEntityException("Not Saved Sub Entity Exception");
 		}
 		query += msg.getAuthor().getId() + ", room = " + msg.getRoom().getId();
-		query += ", text = '" + msg.getText();
-		query += "', time = '" + msg.getTime() + "'";
+		query += ", text = " + msg.getText();
+		query += ", time = " + msg.getTime();
 		System.out.println("query: " + query);
 		try {
 			this.con.prepareStatement(query).execute();
