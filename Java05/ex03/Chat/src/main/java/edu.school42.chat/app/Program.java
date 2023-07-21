@@ -68,6 +68,17 @@ public class Program {
 			System.out.println("'main' says: " + e.getMessage());
 			System.exit(1);
 		}
+		try {
+			Connection	con = ds.getConnection();
+			ResultSet	rs = con.prepareStatement("SELECT * FROM chat.message WHERE id = 4").executeQuery();
+			rs.next();
+			System.out.println("|" + rs.getString("time") + "|");
+			con.close();
+		}
+		catch (Exception e) {
+			System.out.println("'test' says: " + e.getMessage());
+			return ;
+		}
 	}
 }
 
