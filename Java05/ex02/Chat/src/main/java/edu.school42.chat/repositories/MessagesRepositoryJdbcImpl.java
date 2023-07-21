@@ -64,9 +64,8 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 
 	@Override
 	public void					save(Message msg) {
-		String		query = "INSERT INTO chat.message(author, room, text, time) VALUES ("
-						+ msg.getAuthor().getId() + ", " + msg.getRoom().getId() + ", '"
-						+ msg.getText() + "', '" + msg.getTime() + "')";
+		String		query = "INSERT INTO chat.message(author, room, text, time) VALUES (";
+
 		ResultSet	rs;
 
 		if (msg.getAuthor().getId() == -1 || msg.getRoom().getId() == -1) {
@@ -77,10 +76,12 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 			if (!rs.next()) {
 				throw new NotSavedSubEntityException("user(id = " + msg.getAuthor().getId() + ") not found");
 			}
+			query += msg.getAuthor().getId() + ", ";
 			rs = this.con.prepareStatement(("SELECT * FROM chat.room WHERE id = " + msg.getRoom().getId())).executeQuery();
 			if (!rs.next()) {
 				throw new NotSavedSubEntityException("chatroom(id = " + msg.getRoom().getId() + ") not found");
 			}
+			query += msg.getRoom().getId() + ", '" + msg.getText() + "', '" + msg.getTime() + "')";
 			this.con.prepareStatement(query).execute();
 			rs = this.con.prepareStatement("SELECT * FROM chat.message",
 					ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE).executeQuery();
