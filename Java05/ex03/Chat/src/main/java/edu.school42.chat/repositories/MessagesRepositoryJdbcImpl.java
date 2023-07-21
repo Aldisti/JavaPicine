@@ -71,9 +71,10 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 			throw new NotSavedSubEntityException("Not Saved Sub Entity Exception");
 		}
 		query += msg.getAuthor().getId() + ", room = " + msg.getRoom().getId();
-		query += ", text = " + msg.getText();
+		query += ", text = ";
+		query += (msg.getText() == null) ? null : "'" + msg.getText() + "'";
 		query += ", time = " + msg.getTime();
-		query += "WHERE id = " + msg.getId();
+		query += " WHERE id = " + msg.getId();
 		System.out.println("query: " + query);
 		try {
 			this.con.prepareStatement(query).execute();
