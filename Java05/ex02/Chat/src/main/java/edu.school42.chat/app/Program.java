@@ -57,9 +57,9 @@ public class Program {
 		inst.loadSql("data.sql");
 		try {
 			mrj = new MessagesRepositoryJdbcImpl(ds);
-			creator = new User(7L, "user", "user");
+			creator = new User(3L, "mpaterno", "789");
 			author = creator;
-			room = new Chatroom(8L, "room", creator);
+			room = new Chatroom(3L, "ccc", creator);
 			message = new Message(null, author, room, "Hello!", LocalDateTime.now().toString());
 			mrj.save(message);
 			System.out.println("id = " + message.getId());
