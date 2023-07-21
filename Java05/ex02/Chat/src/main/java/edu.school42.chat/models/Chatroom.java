@@ -4,12 +4,13 @@ import java.util.*;
 
 public class Chatroom {
 
-	private long				id;
+	private long			id;
 	private String			name;
 	private User			owner;
 	private List<Message>	messages;
 
 	public	Chatroom(long id, String name, User owner) {
+		this.id = id;
 		this.name = name;
 		this.owner = owner;
 		this.messages = new LinkedList<Message>();
