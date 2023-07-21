@@ -64,7 +64,7 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 
 	@Override
 	public void					save(Message msg) {
-		String		query = "INSERT INTO chat.message(author, room, text, time) VALUES "
+		String		query = "INSERT INTO chat.message(author, room, text, time) VALUES ("
 						+ msg.getAuthor().getId() + ", " + msg.getRoom().getId() + ", '"
 						+ msg.getText() + "', '" + msg.getTime() + "')";
 		ResultSet	rs;
@@ -84,7 +84,6 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 			this.con.prepareStatement(query).execute();
 			rs = this.con.prepareStatement("SELECT * FROM chat.message").executeQuery();
 			rs.last();
-			System.out.println("ciao");
 			msg.setId(rs.getLong("id"));
 		}
 		catch (SQLException e) {
