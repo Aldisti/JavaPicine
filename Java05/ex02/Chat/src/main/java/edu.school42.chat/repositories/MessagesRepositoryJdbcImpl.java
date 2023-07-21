@@ -73,7 +73,7 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 			throw new NotSavedSubEntityException("Not Saved Sub Entity Exception");
 		}
 		try {
-			rs = this.con.prepareStatement("SELECT * FROM chat.user WHERE id = " + msg.getAuthor().getId()).executeQuery();
+			rs = this.con.prepareStatement("SELECT * FROM chat.user WHERE id=" + msg.getAuthor().getId()).executeQuery();
 			if (!rs.next()) {
 				throw new NotSavedSubEntityException("user(id = " + msg.getAuthor().getId() + ") not found");
 			}
