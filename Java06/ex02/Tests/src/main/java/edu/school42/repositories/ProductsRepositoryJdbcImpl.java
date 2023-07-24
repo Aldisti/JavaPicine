@@ -56,7 +56,7 @@ public class ProductsRepositoryJdbcImpl implements ProductsRepository {
 
 	@Override
 	public void					update(Product product) {
-		String	query = "UPDATE * FROM products SET name = ";
+		String	query = "UPDATE products SET name = ";
 
 		if (product.getId() == null) {
 			return ;
