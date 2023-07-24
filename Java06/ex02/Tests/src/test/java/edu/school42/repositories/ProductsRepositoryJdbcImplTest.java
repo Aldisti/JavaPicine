@@ -5,6 +5,7 @@ import edu.school42.models.Product;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import java.sql.*;
@@ -63,6 +64,12 @@ class ProductsRepositoryJdbcImplTest {
 	public void		saveTest() {
 		this.prj.save(new Product(6L, "Weeds", 0));
 		assertEquals(EXPECTED_SAVED_PRODUCT, this.prj.findById(6L).get());
+	}
+
+	@Test
+	public void		deleteTest() {
+		this.prj.delete(1L);
+		assertFalse(this.prj.findById(1L).isPresent());
 	}
 }
 

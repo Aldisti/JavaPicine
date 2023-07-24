@@ -91,7 +91,6 @@ public class ProductsRepositoryJdbcImpl implements ProductsRepository {
 			query += "null";
 		}
 		query += "', " + product.getPrice() + ")";
-		System.out.println("\nsave: " + query + "\n");
 		try {
 			this.con.prepareStatement(query).execute();
 		}
