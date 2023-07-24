@@ -1,6 +1,6 @@
 package edu.school42.repositories;
 
-import edu.school42.models;
+import edu.school42.models.Product;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,7 +1,7 @@
 
-DROP TABLE IF EXISTS product;
+DROP TABLE IF EXISTS products;
 
-CREATE TABLE product(
+CREATE TABLE products(
 	id		BIGSERIAL	UNIQUE	PRIMARY KEY,
 	name	VARCHAR(30),
 	price	INT			NOT NULL

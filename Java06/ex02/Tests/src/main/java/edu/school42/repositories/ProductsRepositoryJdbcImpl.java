@@ -1,8 +1,9 @@
 package edu.school42.repositories;
 
-import edu.school42.models;
+import edu.school42.models.Product;
 
 import java.util.List;
+import java.util.LinkedList;
 import java.util.Optional;
 import java.sql.*;
 import javax.sql.*;
@@ -36,13 +37,15 @@ public class ProductsRepositoryJdbcImpl implements ProductsRepository {
 
 	@Override
 	public Optional<Product>	findById(Long id) {
+		ResultSet	rs;
+
 		if (id == null) {
 			return (null);
 		}
 		try {
 			rs = this.con.prepareStatement("SELECT * FROM products WHERE id = " + id).executeQuery();
 			while (rs.next()) {
-				return (Option.of(new Product(rs.getLong("id"), rs.getString("name"), rs.getInt("price"))));
+				return (Optional.of(new Product(rs.getLong("id"), rs.getString("name"), rs.getInt("price"))));
 			}
 		}
 		catch (Exception e) {
@@ -66,7 +69,7 @@ public class ProductsRepositoryJdbcImpl implements ProductsRepository {
 			query += ", name = 'null'";
 		}
 		query += ", price = " + product.getPrice();
-		query += " WHERE id = " product.getId();
+		query += " WHERE id = " + product.getId();
 		try {
 			this.con.prepareStatement(query).execute();
 		}

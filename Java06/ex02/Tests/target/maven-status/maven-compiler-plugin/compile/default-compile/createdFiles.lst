@@ -1,2 +1,5 @@
-edu/school42/numbers/NumberWorker.class
+edu/school42/repositories/ProductsRepository.class
 edu/school42/numbers/IllegalNumberException.class
+edu/school42/numbers/NumberWorker.class
+edu/school42/models/Product.class
+edu/school42/repositories/ProductsRepositoryJdbcImpl.class
