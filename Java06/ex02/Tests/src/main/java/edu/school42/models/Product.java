@@ -40,5 +40,19 @@ public class Product {
 	public String	toString() {
 		return ("[id=" + this.id + ", name=" + this.name + ", price=" + this.price + "]");
 	}
+
+	@Override
+	public boolead	equals(Object o) {
+		if (this == o) {
+			return (true);
+		}
+		if (o == null || this.getClass() != o.getClass()) {
+			return (false);
+		}
+		Product	p = (Product) o;
+		return (this.getId() == p.getId()
+			&& this.getName().equals(p.getName())
+			&& this.getPrice() == p.getPrice());
+	}
 }
 
