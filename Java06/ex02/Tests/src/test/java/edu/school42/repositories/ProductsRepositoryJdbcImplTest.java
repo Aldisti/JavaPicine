@@ -10,6 +10,8 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import java.sql.*;
 import javax.sql.*;
 import java.util.List;
+import java.util.LinkedList;
+import java.util.Arrays;
 
 class ProductsRepositoryJdbcImplTest {
 
