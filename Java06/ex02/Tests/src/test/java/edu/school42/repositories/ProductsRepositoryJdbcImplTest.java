@@ -4,7 +4,7 @@ import edu.school42.models.Product;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import java.sql.*;
@@ -18,7 +18,7 @@ class ProductsRepositoryJdbcImplTest {
 	private DataSource					ds;
 	private ProductsRepositoryJdbcImpl	prj;
 
-	final List<Product>	EXPECTED_FIND_ALL_PRODUCTS = new LinkedList<Product>(Arrays.toList(
+	final List<Product>	EXPECTED_FIND_ALL_PRODUCTS = new LinkedList<Product>(Arrays.asList(
 			new Product(1L, "Galaxy S21 5G", 600),
 			new Product(2L, "Gear S3 Frontier", 300),
 			new Product(3L, "Mi True Earbuds", 25),
