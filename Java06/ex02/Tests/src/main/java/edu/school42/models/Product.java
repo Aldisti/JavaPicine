@@ -1,5 +1,7 @@
 package edu.school42.models;
 
+import java.util.Object;
+
 public class Product {
 	
 	private Long	id;
@@ -42,7 +44,12 @@ public class Product {
 	}
 
 	@Override
-	public boolead	equals(Object o) {
+	public int		hashCode() {
+		return (Object.hash(this.id, this.name, this.price));
+	}
+
+	@Override
+	public boolean	equals(Object o) {
 		if (this == o) {
 			return (true);
 		}
@@ -50,9 +57,9 @@ public class Product {
 			return (false);
 		}
 		Product	p = (Product) o;
-		return (this.getId() == p.getId()
-			&& this.getName().equals(p.getName())
-			&& this.getPrice() == p.getPrice());
+		return (this.id == p.getId()
+			&& this.name.equals(p.getName())
+			&& this.price == p.getPrice());
 	}
 }
 
