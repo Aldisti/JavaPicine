@@ -18,12 +18,18 @@ class ProductsRepositoryJdbcImplTest {
 		DataSource					ds;
 		List<Product>				tmp;
 
+		try {
 		ds = new EmbeddedDatabaseBuilder()
 			.setType(EmbeddedDatabaseType.HSQL)
 			.addScript("/schema.sql")
 			.addScript("/data.sql")
 			.build();
 		prj = new ProductsRepositoryJdbcImpl(ds);
+		}
+		catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return ;
+		}
 		tmp = prj.findAll();
 		for (Product p : tmp) {
 			System.out.println(p);
