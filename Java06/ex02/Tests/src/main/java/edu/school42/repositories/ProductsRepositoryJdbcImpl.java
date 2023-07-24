@@ -40,7 +40,7 @@ public class ProductsRepositoryJdbcImpl implements ProductsRepository {
 		ResultSet	rs;
 
 		if (id == null) {
-			return (null);
+			return (Optional.empty());
 		}
 		try {
 			rs = this.con.prepareStatement("SELECT * FROM products WHERE id = " + id).executeQuery();
@@ -51,7 +51,7 @@ public class ProductsRepositoryJdbcImpl implements ProductsRepository {
 		catch (Exception e) {
 			System.out.println("'findById' says: \"" + e.getMessage() + "\"");
 		}
-		return (null);
+		return (Optional.empty());
 	}
 
 	@Override
