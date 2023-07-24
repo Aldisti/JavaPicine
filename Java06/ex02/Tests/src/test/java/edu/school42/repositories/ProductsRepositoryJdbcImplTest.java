@@ -46,9 +46,9 @@ class ProductsRepositoryJdbcImplTest {
 
 	@Test
 	public void		findByIdTest() {
-		assertEqual(EXPECTED_FIND_BY_ID_PRODUCT_1, this.prj.findById(1L).get());
-		assertEqual(EXPECTED_FIND_BY_ID_PRODUCT_2, this.prj.findById(3L).get());
-		assertEqual(EXPECTED_FIND_BY_ID_PRODUCT_3, this.prj.findById(4L).get());
+		assertEquals(EXPECTED_FIND_BY_ID_PRODUCT_1, this.prj.findById(1L).get());
+		assertEquals(EXPECTED_FIND_BY_ID_PRODUCT_2, this.prj.findById(3L).get());
+		assertEquals(EXPECTED_FIND_BY_ID_PRODUCT_3, this.prj.findById(4L).get());
 	}
 }
 
