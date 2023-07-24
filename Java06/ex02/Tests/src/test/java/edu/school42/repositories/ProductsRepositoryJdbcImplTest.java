@@ -10,7 +10,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import java.sql.*;
 import javax.sql.*;
 import java.util.List;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 class ProductsRepositoryJdbcImplTest {
@@ -18,7 +18,7 @@ class ProductsRepositoryJdbcImplTest {
 	private DataSource					ds;
 	private ProductsRepositoryJdbcImpl	prj;
 
-	final List<Product>	EXPECTED_FIND_ALL_PRODUCTS = new LinkedList<Product>(Arrays.asList(
+	final List<Product>	EXPECTED_FIND_ALL_PRODUCTS = new ArrayList<Product>(Arrays.asList(
 			new Product(1L, "Galaxy S21 5G", 600),
 			new Product(2L, "Gear S3 Frontier", 300),
 			new Product(3L, "Mi True Earbuds", 25),

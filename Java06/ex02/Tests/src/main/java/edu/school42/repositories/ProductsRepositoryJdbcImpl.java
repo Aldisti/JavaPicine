@@ -3,7 +3,7 @@ package edu.school42.repositories;
 import edu.school42.models.Product;
 
 import java.util.List;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.sql.*;
 import javax.sql.*;
@@ -20,7 +20,7 @@ public class ProductsRepositoryJdbcImpl implements ProductsRepository {
 
 	@Override
 	public List<Product>		findAll() {
-		List<Product>	tmp = new LinkedList<Product>();
+		List<Product>	tmp = new ArrayList<Product>();
 		ResultSet		rs;
 
 		try {
