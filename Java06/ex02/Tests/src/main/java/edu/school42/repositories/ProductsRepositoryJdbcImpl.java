@@ -83,14 +83,14 @@ public class ProductsRepositoryJdbcImpl implements ProductsRepository {
 		if (this.findById(product.getId()).isPresent()) {
 			return ;
 		}
-		query += " (" + product.getId();
+		query += " (" + product.getId() + ", '";
 		if (product.getName() != null) {
-			query += ", " + product.getName();
+			query += product.getName();
 		}
 		else {
-			query += ", " + "'null'";
+			query += "null";
 		}
-		query += ", " + product.getPrice() + ")";
+		query += "', " + product.getPrice() + ")";
 		System.out.println("\nsave: " + query + "\n");
 		try {
 			this.con.prepareStatement(query).execute();
