@@ -3,9 +3,8 @@ package edu.school42.repositories;
 import edu.school42.models.Product;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import java.sql.*;
 import javax.sql.*;
@@ -28,12 +27,6 @@ class ProductsRepositoryJdbcImplTest {
 		tmp = prj.findAll();
 		for (Product p : tmp) {
 			System.out.println(p);
-		}
-		try {
-			((EmbeddedDatabase)ds).close();
-		}
-		catch (Exception e) {
-			System.out.println(e.getMessage());
 		}
 	}
 }
