@@ -1,5 +1,7 @@
 package edu.school42.repositories;
 
+import edu.school42.models.Product;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
