@@ -54,7 +54,7 @@ class ProductsRepositoryJdbcImplTest {
 	@Test
 	public void		updateTest() {
 		this.prj.update(new Product(1L, "Missile", 10000));
-		assertEquals(EXPECTED_UPDATED_PRODUCT, this.prj.findById(1L));
+		assertEquals(EXPECTED_UPDATED_PRODUCT, this.prj.findById(1L).get());
 	}
 }
 
