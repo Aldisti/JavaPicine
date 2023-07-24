@@ -1,7 +1,5 @@
 package edu.school42.models;
 
-import java.util.Object;
-
 public class Product {
 	
 	private Long	id;
