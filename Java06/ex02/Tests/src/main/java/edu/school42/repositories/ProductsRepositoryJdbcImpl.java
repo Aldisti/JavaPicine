@@ -61,12 +61,11 @@ public class ProductsRepositoryJdbcImpl implements ProductsRepository {
 		if (product.getId() == null) {
 			return ;
 		}
-		query += " id = " + product.getId();
 		if (product.getName() != null) {
-			query += ", name = " + product.getName();
+			query += "name = " + product.getName();
 		}
 		else {
-			query += ", name = 'null'";
+			query += "name = 'null'";
 		}
 		query += ", price = " + product.getPrice();
 		query += " WHERE id = " + product.getId();
