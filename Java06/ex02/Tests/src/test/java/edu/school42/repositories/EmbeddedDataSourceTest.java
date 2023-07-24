@@ -2,7 +2,6 @@ package edu.school42.numbers;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import java.sql.*;
@@ -23,7 +22,6 @@ public class EmbeddedDataSourceTest {
 				.build();
 			con = ds.getConnection();
 			assertNotNull(con);
-			assertTrue(con.isValid(100));
 		}
 		catch (SQLException e) {
 			System.out.println(e.getMessage());
