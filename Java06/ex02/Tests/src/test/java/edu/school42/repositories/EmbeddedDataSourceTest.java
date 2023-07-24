@@ -12,7 +12,7 @@ public class EmbeddedDataSourceTest {
 	@Test
 	public void	checkConnection() {
 		DataSource	ds ;
-		Connection				con;
+		Connection	con;
 
 		try {
 			ds = new EmbeddedDatabaseBuilder()
