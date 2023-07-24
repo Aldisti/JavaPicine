@@ -16,7 +16,10 @@ public class EmbeddedDataSourceTest {
 
 		try {
 			ds = new EmbeddedDatabaseBuilder()
+				.generateUniqueName(true)
 				.setType(EmbeddedDatabaseType.HSQL)
+				.setScriptEncoding("UTF-8")
+				.ignoreFailedDrops(true)
 				.addScript("/schema.sql")
 				.addScript("/data.sql")
 				.build();
