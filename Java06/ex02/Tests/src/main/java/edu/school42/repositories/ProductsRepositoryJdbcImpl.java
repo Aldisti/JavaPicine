@@ -69,6 +69,7 @@ public class ProductsRepositoryJdbcImpl implements ProductsRepository {
 		}
 		query += ", price = " + product.getPrice();
 		query += " WHERE id = " + product.getId();
+		System.out.println("update: " + query);
 		try {
 			this.con.prepareStatement(query).execute();
 		}
