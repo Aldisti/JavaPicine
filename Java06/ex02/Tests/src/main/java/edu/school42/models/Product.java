@@ -1,6 +1,6 @@
 package edu.school42.models;
 
-import java.util.*;
+import java.util.Objects;
 
 public class Product {
 	
@@ -45,7 +45,7 @@ public class Product {
 
 	@Override
 	public int		hashCode() {
-		return (Object.hash(this.id, this.name, this.price));
+		return (Objects.hash(this.id, this.name, this.price));
 	}
 
 	@Override
