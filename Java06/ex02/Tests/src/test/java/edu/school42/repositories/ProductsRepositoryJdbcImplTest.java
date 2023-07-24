@@ -28,6 +28,7 @@ class ProductsRepositoryJdbcImplTest {
 	final Product	EXPECTED_FIND_BY_ID_PRODUCT_2 = new Product(3L, "Mi True Earbuds", 25);
 	final Product	EXPECTED_FIND_BY_ID_PRODUCT_3 = new Product(4L, "Lenovo Legion 5", 1500);
 	final Product	EXPECTED_UPDATED_PRODUCT = new Product(1L, "Missile", 10000);
+	final Product	EXPECTED_SAVED_PRODUCT = new Product(6L, "Weeds", 0);
 
 	@BeforeEach
 	public void		init() throws SQLException {
@@ -56,6 +57,12 @@ class ProductsRepositoryJdbcImplTest {
 		this.prj.update(new Product(1L, "Missile", 10000));
 		assertEquals(EXPECTED_UPDATED_PRODUCT, this.prj.findById(1L).get());
 		assertEquals(EXPECTED_FIND_BY_ID_PRODUCT_2, this.prj.findById(3L).get());
+	}
+
+	@Test
+	public void		saveTest() {
+		this.prj.save(new Product(6L, "Weeds", 0));
+		assertEquals(EXPECTED_SAVED_PRODUCT, this.prj.findById(6L).get());
 	}
 }
 
