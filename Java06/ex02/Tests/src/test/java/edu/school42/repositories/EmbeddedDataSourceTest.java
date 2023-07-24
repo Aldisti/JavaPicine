@@ -22,13 +22,13 @@ public class EmbeddedDataSourceTest {
 				.addScript("/data.sql")
 				.build();
 			con = ds.getConnection();
+			assertNotNull(con);
+			assertTrue(con.isValid(100));
 		}
 		catch (SQLException e) {
 			System.out.println(e.getMessage());
 			return ;
 		}
-		assertNotNull(con);
-		assertTrue(con.isValid(100));
 	}
 }
 
