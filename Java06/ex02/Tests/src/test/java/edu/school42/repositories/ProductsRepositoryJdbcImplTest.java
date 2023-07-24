@@ -5,6 +5,7 @@ import edu.school42.models.Product;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import java.sql.*;
 import javax.sql.*;
@@ -29,7 +30,7 @@ class ProductsRepositoryJdbcImplTest {
 			System.out.println(p);
 		}
 		try {
-			ds.close();
+			((EmbeddedDatabase)ds).close();
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
