@@ -17,9 +17,8 @@ public class Product {
 		this.price = price;
 	}
 
-	public Integer	increment(Integer value) {
-		this.price += value;
-		return (this.price);
+	public void	increment() {
+		this.price += 1;
 	}
 
 	@Override

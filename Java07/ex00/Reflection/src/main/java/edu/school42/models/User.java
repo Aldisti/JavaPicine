@@ -17,9 +17,9 @@ public class User {
 		this.balance = balance;
 	}
 
-	public Integer	deposit(Integer value) {
+	public String	deposit(Integer value) {
 		this.balance += value;
-		return (this.balance);
+		return ("Your new balance is: " + this.balance);
 	}
 
 	@Override

@@ -95,19 +95,18 @@ public class App {
 			System.out.print("Enter " + tmp[i] + " value:\n-> ");
 			args.add(params.get(i - 1).getConstructor(String.class).newInstance(kb.nextLine().trim()));
 		}
-		System.out.println(method.getReturnType());
 		if (!method.getReturnType().getSimpleName().equals("void")) {
 			System.out.println("Method returned:\n" + method.invoke(o, args.toArray()));
 		}
 		else {
 			method.invoke(o, args.toArray());
+			System.out.println(o.toString());
 		}
 	}
 
 	public static void	main(String[] args) {
 		String			line;
 		Class			c = null;
-		Constructor[]	constructors;
 		Object			o;
 
 		System.out.println("Classes:\nUser\nProduct");
@@ -122,7 +121,7 @@ public class App {
 			callMethod(c, o);
 		}
 		catch (Exception e) {
-			System.out.println(e);
+			System.out.println("Error: '" + e + "'");
 			return ;
 		}
 	}
