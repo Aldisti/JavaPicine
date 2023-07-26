@@ -77,37 +77,52 @@ public class App {
 		System.out.println("Object updated: " + o);
 	}
 
+	public static void	callMethod(Class c, Object o) throws Exception {
+		Method			method;
+		String[]		tmp;
+		List<Class>		params = new LinkedList<Class>();
+		List<Object>	args = new LinkedList<Object>();
+
+		System.out.println("-------------------------");
+		System.out.println("Enter name of the method for call:");
+		System.out.print("-> ");
+		tmp = kb.nextLine().replace("(", ",").replace(")", ",").replace(" ", "").split(",");
+		for (int i = 1; i < tmp.length; i++) {
+			params.add(Class.forName("java.lang." + tmp[i]));
+		}
+		method = (tmp.length > 1) ? c.getMethod(tmp[0], params.toArray(new Class[0])) : c.getMethod(tmp[0], null);
+		for (int i = 1; i < tmp.length; i++) {
+			System.out.print("Enter " + tmp[i] + " value:\n-> ");
+			args.add(params.get(i - 1).getConstructor(String.class).newInstance(kb.nextLine().trim()));
+		}
+		System.out.println(method.getReturnType());
+		if (!method.getReturnType().getSimpleName().equals("void")) {
+			System.out.println("Method returned:\n" + method.invoke(o, args.toArray()));
+		}
+		else {
+			method.invoke(o, args.toArray());
+		}
+	}
+
 	public static void	main(String[] args) {
-		String			line = "User";
+		String			line;
 		Class			c = null;
 		Constructor[]	constructors;
 		Object			o;
 
+		System.out.println("Classes:\nUser\nProduct");
+		System.out.println("-------------------------");
+		System.out.print("Enter class name:\n-> ");
+		line = kb.nextLine().trim();
 		try {
-			c = Class.forName("edu.school42.models.User");
+			c = Class.forName("edu.school42.models." + line);
 			showClassInfo(c);
 			o = createObject(c);
 			updateObject(c, o);
-
-			System.out.println();
-			System.out.println();
-
-			constructors = c.getDeclaredConstructors();
-			for(Constructor constructor : constructors) {
-				System.out.println("Name of Constructor : "+constructor);
-
-				System.out.println("Count of constructor parameter : "+constructor.getParameterCount());
-
-				Parameter[] parameters = constructor.getParameters();
-				for(int i = 0; i < parameters.length; i++) {
-					System.out.println("Constructor's parameter : " + parameters[i]);
-				}
-				System.out.println();
-			}
-			System.out.println();
+			callMethod(c, o);
 		}
 		catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println(e);
 			return ;
 		}
 	}

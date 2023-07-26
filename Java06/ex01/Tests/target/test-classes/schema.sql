@@ -1,9 +1,0 @@
-
-DROP TABLE IF EXISTS product;
-
-CREATE TABLE product(
-	id		BIGSERIAL	UNIQUE	PRIMARY KEY,
-	name	VARCHAR(30),
-	price	INT			NOT NULL
-);
-
