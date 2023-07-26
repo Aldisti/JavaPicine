@@ -1,5 +1,7 @@
 package edu.school42.models;
 
+import java.util.StringJoiner;
+
 public class Product {
 
 	private String	name;
@@ -22,7 +24,10 @@ public class Product {
 
 	@Override
 	public String	toString() {
-		return ("{name: " + this.name + ", price: " + this.price + "}");
+		return (new StringJoiner(", ", Product.class.getSimpleName() + "[", "]")
+			.add("name='" + name + "'")
+			.add("price=" + price)
+			.toString());
 	}
 }
 

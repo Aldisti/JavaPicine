@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.school42.reflection.AppTest" time="0.018" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="edu.school42.reflection.AppTest" time="0.02" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -17,7 +17,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
-    <property name="sun.java.command" value="/nfs/homes/adi-stef/Documents/JavaPiscine/Java07/ex00/Reflection/target/surefire/surefirebooter2027600984736752757.jar /nfs/homes/adi-stef/Documents/JavaPiscine/Java07/ex00/Reflection/target/surefire 2023-07-25T12-28-19_805-jvmRun1 surefire3910393853567876206tmp surefire_02572647806948274112tmp"/>
+    <property name="sun.java.command" value="/nfs/homes/adi-stef/Documents/JavaPiscine/Java07/ex00/Reflection/target/surefire/surefirebooter8074471933123846605.jar /nfs/homes/adi-stef/Documents/JavaPiscine/Java07/ex00/Reflection/target/surefire 2023-07-26T09-39-40_614-jvmRun1 surefire5672337489623396974tmp surefire_06134820280666896592tmp"/>
     <property name="surefire.test.class.path" value="/nfs/homes/adi-stef/Documents/JavaPiscine/Java07/ex00/Reflection/target/test-classes:/nfs/homes/adi-stef/Documents/JavaPiscine/Java07/ex00/Reflection/target/classes:/nfs/homes/adi-stef/.m2/repository/junit/junit/4.11/junit-4.11.jar:/nfs/homes/adi-stef/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/nfs/homes/adi-stef"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/nfs/homes/adi-stef/Documents/JavaPiscine/Java07/ex00/Reflection/target/surefire/surefirebooter2027600984736752757.jar"/>
+    <property name="surefire.real.class.path" value="/nfs/homes/adi-stef/Documents/JavaPiscine/Java07/ex00/Reflection/target/surefire/surefirebooter8074471933123846605.jar"/>
     <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_362-8u372-ga~us1-0ubuntu1~20.04-b09"/>

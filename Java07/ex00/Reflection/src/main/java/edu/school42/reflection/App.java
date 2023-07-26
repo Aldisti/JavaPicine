@@ -63,18 +63,31 @@ public class App {
 		return (out);
 	}
 
-	public static void	updateObject(Object o, Class c) {
-		
+	public static void	updateObject(Class c, Object o) throws Exception {
+		Field	field;
+
+		System.out.println("-------------------------");
+		System.out.println("Enter name of the field for changing:");
+		System.out.print("-> ");
+		field = c.getDeclaredField(kb.nextLine());
+		field.setAccessible(true);
+		System.out.println("Enter " + field.getType().getSimpleName() + " value:");
+		System.out.print("-> ");
+		field.set(o, field.getType().getConstructor(String.class).newInstance(kb.nextLine()));
+		System.out.println("Object updated: " + o);
 	}
 
 	public static void	main(String[] args) {
 		String			line = "User";
 		Class			c = null;
 		Constructor[]	constructors;
+		Object			o;
+
 		try {
 			c = Class.forName("edu.school42.models.User");
 			showClassInfo(c);
-			createObject(c);
+			o = createObject(c);
+			updateObject(c, o);
 
 			System.out.println();
 			System.out.println();

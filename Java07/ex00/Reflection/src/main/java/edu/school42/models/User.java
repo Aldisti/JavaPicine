@@ -1,9 +1,11 @@
 package edu.school42.models;
 
+import java.util.StringJoiner;
+
 public class User {
 
 	private String	name;
-	private Integer		balance;
+	private Integer	balance;
 
 	public	User() {
 		this.name = "Default";
@@ -22,7 +24,10 @@ public class User {
 
 	@Override
 	public String	toString() {
-		return ("{name: " + this.name + ", balance: " + this.balance + "}");
+		return (new StringJoiner(", ", User.class.getSimpleName() + "[", "]")
+			.add("name='" + name + "'")
+			.add("balance=" + balance)
+			.toString());
 	}
 }
 
